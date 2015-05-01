@@ -108,7 +108,7 @@ func (bank *Bank) moveMoneyTransaction(from, to []byte, amount int64) bool {
 }
 
 // moveMoneyWithoutTransaction() moves an amount between two accounts without the
-// use of transactions, if the amount is available in the from account.
+// use of a transaction, if the amount is available in the from account.
 // Returns true on success.
 func (bank *Bank) moveMoney(from, to []byte, amount int64) bool {
 	// Early exit when from == to
@@ -223,7 +223,7 @@ func main() {
 	fmt.Printf("A simple program that keeps moving money between bank accounts.\n\n")
 	flag.Parse()
 	if !*useTransaction {
-		fmt.Printf("Use of a transaction have been disabled.\n")
+		fmt.Printf("Use of a transaction has been disabled.\n")
 	}
 	// Run a test cockroach instance to represent the bank.
 	security.SetReadFileFn(securitytest.Asset)
